@@ -1,5 +1,9 @@
-class ApplicationController < ActionController::API
+class ApplicationController < ActionController::Base
   include ActionController::Helpers
+
+  def fallback_index_html
+    render :file => 'public/index.html'
+  end
 
   def current_tile_for_player(board_id, player_id)
     board = Board.find(board_id)
